@@ -16,14 +16,14 @@ class Solution {
         
         for(int i=index;i<s.length();i++){
             if(isPalindrome(s,index,i)){
-                path.add(s.substring(index,i+1));
-                func(i+1,s,path,res);
-                path.remove(path.size()-1);
+                path.add(s.substring(index,i+1));     //storing the first palindromic string 
+                func(i+1,s,path,res);                 //calling the func for the rest of the string
+                path.remove(path.size()-1);          //removing while backtracking
             }
         }
     }
     
-    boolean isPalindrome(String s, int start, int end){
+    boolean isPalindrome(String s, int start, int end){       //func to check palindrome
         while(start<end){
             if(s.charAt(start++) != s.charAt(end--))
                 return false;
