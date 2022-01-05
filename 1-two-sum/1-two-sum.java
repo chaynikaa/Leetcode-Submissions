@@ -1,7 +1,7 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
      // int[] ans= new int[2];                             // n^2 approach
-     // for(int i=0;i<nums.length;i++){
+     // for(int i=0;i<nums.length;i++){                    // approach 2 - sort the array and use two pointer approach
      //     for(int j=0;j<nums.length;j++){
      //         if((nums[i]+nums[j]==target)&& (i!=j)){
      //            ans[0]=i;
