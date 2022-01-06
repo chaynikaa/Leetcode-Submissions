@@ -28,6 +28,9 @@
 // }
 class Solution {                                         //APPROACH-2 0(n)
     public int[] intersect(int[] nums1, int[] nums2) {
+        
+        if(nums1.length>nums2.length)
+            return intersect(nums2,nums1);
         HashMap<Integer,Integer> map = new HashMap<>();
         
         for(int i=0;i<nums1.length;i++){
