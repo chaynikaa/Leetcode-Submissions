@@ -33,13 +33,23 @@ class Solution {                                         //APPROACH-2 0(n)
             return intersect(nums2,nums1);
         HashMap<Integer,Integer> map = new HashMap<>();
         
-        for(int i=0;i<nums1.length;i++){
-            map.put(nums1[i],map.getOrDefault(nums1[i],0)+1);
+        for(int num : nums1){
+            if(map.containsKey(num)==false)
+                map.put(num,1);
+            else{
+                int count = map.get(num);
+                count++;
+                map.put(num,count);
+            }
         }
         
         int k=0;
+        int count;
         for(int n:nums2){
-            int count = map.getOrDefault(n,0);
+            count = 0;
+             if(map.containsKey(n))
+                  count = map.get(n);
+            
             if(count>0){
                 nums1[k++]=n;
                 map.put(n,count-1);
