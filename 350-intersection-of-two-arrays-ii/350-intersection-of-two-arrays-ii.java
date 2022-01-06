@@ -23,10 +23,10 @@ class Solution {
             }            
         }
         
-        int[] a = new int[k];
-        for(int l=0;l<k;l++)
-            a[l] = ans[l];
+//         int[] a = new int[k];
+//         for(int l=0;l<k;l++)
+//             a[l] = ans[l];
         
-        return a;
+        return Arrays.copyOfRange(ans,0,k);
     }
 }
