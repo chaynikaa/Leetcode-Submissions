@@ -8,6 +8,7 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
 class Solution {                                 //O(1) SPACE SOLUTION
     private ListNode head;       //RESERVOIR SAMPLING
      
