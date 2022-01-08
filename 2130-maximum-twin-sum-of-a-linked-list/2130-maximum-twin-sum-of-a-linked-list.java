@@ -14,7 +14,7 @@ class Solution {
      
         ListNode slow = head;
         ListNode fast = head.next;
-        ListNode temph=head;
+        ListNode temph = head;
         
         while(fast.next!=null ){
             slow = slow.next;
@@ -25,12 +25,12 @@ class Solution {
         slow.next=null;
         System.out.println(head2.val);
         ListNode rev = reverseList(head2);
-        temph = head;
+        // temph = head;
         
-        while(rev!=null && temph!=null){
-            int sum = rev.val + temph.val;
+        while(rev!=null && head!=null){
+            int sum = rev.val + head.val;
             max = Math.max(max,sum);
-            temph = temph.next;
+            head = head.next;
             rev = rev.next;
         }
         
