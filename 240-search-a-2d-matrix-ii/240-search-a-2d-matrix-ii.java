@@ -1,5 +1,5 @@
 class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
+    public boolean searchMatrix(int[][] matrix, int target) {  //O(N+M) Approach
         int i = 0;
         int j = matrix[0].length-1;
         
