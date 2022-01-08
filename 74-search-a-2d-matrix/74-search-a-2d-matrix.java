@@ -8,9 +8,10 @@ class Solution {
 //             }
 //         }
 //         return false;
-//     }
+//     }                                                           //one approach is consider the whole as 1 array 
+                                                                   //apply binary search
     
-        public boolean searchMatrix(int[][] matrix, int target) {
+        public boolean searchMatrix(int[][] matrix, int target) {   //start searching from top right corner
             int i = 0;
             int j = matrix[0].length-1;
             while(i<matrix.length && j>=0){
