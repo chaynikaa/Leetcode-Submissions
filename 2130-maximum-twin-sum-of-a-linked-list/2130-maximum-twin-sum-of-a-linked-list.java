@@ -14,22 +14,19 @@ class Solution {
      
         ListNode slow = head;
         ListNode fast = head.next;
-        ListNode temph = head;
         
-        while(fast.next!=null ){
+        while(fast.next!=null ){           //moving to the mid element
             slow = slow.next;
             fast = fast.next.next;
         }
         
-        ListNode head2 = slow.next;
-        slow.next=null;
-        System.out.println(head2.val);
-        ListNode rev = reverseList(head2);
-        // temph = head;
+        ListNode head2 = slow.next;         //storing the head of the second half of the last
+        slow.next=null;                     
+        ListNode rev = reverseList(head2);  //reverse the last half
         
-        while(rev!=null && head!=null){
+        while(rev!=null && head!=null){    //summing the vals
             int sum = rev.val + head.val;
-            max = Math.max(max,sum);
+            max = Math.max(max,sum);       //storing the max
             head = head.next;
             rev = rev.next;
         }
@@ -37,7 +34,7 @@ class Solution {
        return max; 
     }
 
-        public ListNode reverseList(ListNode head) {
+        public ListNode reverseList(ListNode head) {    //function to reverse the list
         ListNode temp = null;
         
         while(head!=null){
