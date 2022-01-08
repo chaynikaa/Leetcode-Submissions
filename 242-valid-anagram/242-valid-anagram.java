@@ -1,7 +1,7 @@
 class Solution {
-    public boolean isAnagram(String s, String t) {
-        
-        int[] arr = new int[27];
+    public boolean isAnagram(String s, String t) {  //approach-1 sort two arrays and compare
+                                                    // approach-2 given approach
+        int[] arr = new int[27];                    //approach-3 hashing for unique codes
         
         if(s.length()!=t.length())
             return false;
