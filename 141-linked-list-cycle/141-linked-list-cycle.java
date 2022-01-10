@@ -31,7 +31,9 @@ public class Solution {
 }
 
 
-// public class Solution {                           //APPROACH-2 ONE PASS.
+//APPROACH - 2 -> HASHING-> KEEP ADDING NODES IN HASH SET. IF ANY NODE REPEATS THAT MEANS CYCLE IS DETECTED.
+
+// public class Solution {                           //APPROACH-3 ONE PASS.
 //     public boolean hasCycle(ListNode head) {
         
 //       ListNode temp = new ListNode();
