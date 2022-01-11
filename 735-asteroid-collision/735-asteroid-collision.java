@@ -14,7 +14,7 @@ class Solution {
                 if(st.isEmpty() || st.peek() < 0){                                  //pushing if stack empty
                     st.push(num);                             //or we have already-ve value
                 }else{ 
-                    if(st.peek() > 0 && st.peek() == Math.abs(num)){   //checking equal case 
+                    if(st.peek() == Math.abs(num)){   //checking equal case 
                         st.pop();
                     }
                 }
