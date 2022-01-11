@@ -1,8 +1,8 @@
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {
         
-        int[] arr = new int[nums.length];
-        List<Integer>ans = new ArrayList<>();
+        int[] arr = new int[nums.length];   //using array for doing hashing   
+        List<Integer>ans = new ArrayList<>();  //similar as car-pooling ques
         for(int i=0;i<nums.length;i++){
             if(nums[i]==nums.length)
                 arr[0]++;
