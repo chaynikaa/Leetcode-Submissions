@@ -21,24 +21,25 @@ class Solution {
         
         TreeNode node  = root;
         
-        while(node!=null){
-            if(node.val>val){
-                if(node.left == null){
-                    node.left = new TreeNode(val);
-                    return root;
+        while(node!=null){  
+            
+            if(node.val>val){           //traversal to left side
+                if(node.left == null){  //got the leaf node
+                    node.left = new TreeNode(val);  //add val
+                    return root;                     //return 
                 } else
-                    node = node.left;
-            } else {
-                if(node.right == null){
+                    node = node.left;  //else keep moving
+            } else {                    //traversal to right side
+                if(node.right == null){  //got the leaf node
                     node.right = new TreeNode(val);
                     return root;
                 }
                 else
-                    node = node.right;
+                    node = node.right;  //else keep moving
             }
         }
         
-        return new TreeNode(val);
+        return new TreeNode(val);  //if root is empty. insert that node
     }
 }
 
