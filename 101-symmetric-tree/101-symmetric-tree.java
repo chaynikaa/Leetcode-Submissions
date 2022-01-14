@@ -21,8 +21,11 @@ class Solution {
     }
     
     public boolean helper(TreeNode left, TreeNode right){
-        if(left==null || right==null)
-            return left==right;
+        if((left==null && right!=null)  || (left!=null && right==null) )
+            return false;
+        
+        if(left==right)
+            return true;
         
         if(left.val!=right.val)
             return false;
