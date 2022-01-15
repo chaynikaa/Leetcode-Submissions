@@ -45,7 +45,6 @@ class Solution {
         else{
             if(count1>n)
             ans.add(num1);
-            
             if(count2>n)
             ans.add(num2);
         }
