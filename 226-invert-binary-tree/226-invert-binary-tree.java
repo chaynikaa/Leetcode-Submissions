@@ -18,9 +18,7 @@ class Solution {
         if (root == null){
             return null;
         }
-        //preorder
-        // root swap left and right child node
-     
+  
         // keep invert
         invertTree(root.left);
         invertTree(root.right);
