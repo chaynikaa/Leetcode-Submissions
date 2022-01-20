@@ -9,26 +9,58 @@
  * }
  */
 class Solution {
-   public ListNode mergeKLists(ListNode[] lists) {
-    List<Integer> l = new ArrayList<Integer>();
-   
-    for (ListNode ln : lists) {
-        while (ln != null) {
-            l.add(ln.val);
-            ln = ln.next;
+public ListNode mergeKLists(ListNode[] lists) { 
+        Comparator<ListNode> cmp;
+        cmp = new Comparator<ListNode>() {  
+        @Override
+        public int compare(ListNode o1, ListNode o2) {
+            // TODO Auto-generated method stub
+            return o1.val-o2.val;
         }
-    }
-   
-    Collections.sort(l);
+        };
  
-    ListNode head = new ListNode(0);
-    ListNode h = head;
-    for (int i : l) {
-        ListNode t = new ListNode(i);
-        h.next = t;
-        h = h.next;
-    }
-    h.next = null;
-    return head.next;
+        Queue<ListNode> q = new PriorityQueue<ListNode>(cmp);
+        for(ListNode l : lists){
+            if(l!=null){
+                q.add(l);
+            }        
+        }
+        ListNode head = new ListNode(0);
+        ListNode point = head;
+        while(!q.isEmpty()){ 
+            point.next = q.poll();
+            point = point.next; 
+            ListNode next = point.next;
+            if(next!=null){
+                q.add(next);
+            }
+        }
+        return head.next;
+    }  
 }
-}
+
+
+// class Solution {
+//    public ListNode mergeKLists(ListNode[] lists) {
+//     List<Integer> l = new ArrayList<Integer>();
+   
+//     for (ListNode ln : lists) {
+//         while (ln != null) {
+//             l.add(ln.val);
+//             ln = ln.next;
+//         }
+//     }
+   
+//     Collections.sort(l);
+ 
+//     ListNode head = new ListNode(0);
+//     ListNode h = head;
+//     for (int i : l) {
+//         ListNode t = new ListNode(i);
+//         h.next = t;
+//         h = h.next;
+//     }
+//     h.next = null;
+//     return head.next;
+// }
+// }
