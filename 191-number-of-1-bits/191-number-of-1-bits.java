@@ -1,12 +1,12 @@
-public class Solution {
+public class Solution {          //kernighans algorithm
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-      int ans=0;
-        for(int i=0;i<32;i++){
-            int p=n>>i;
-            if((p&1)==1)
-                ans++;
+        int ans = 0;
+        while(n!=0){
+            int mask = (n & -n);   //rightmost set bit
+            n = n-mask;            //subtracting it
+            ans++;
         }
-        return ans;
+      return ans;  
     }
 }
