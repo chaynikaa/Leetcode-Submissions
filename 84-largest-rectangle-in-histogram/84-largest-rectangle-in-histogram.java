@@ -1,6 +1,9 @@
 class Solution {
     public int largestRectangleArea(int[] heights) {
        int[] nsr = nser(heights);
+        
+        for(int i=0;i<nsr.length;i++)
+            System.out.println(nsr[i]);
        int[] nsl = nsel(heights);
        
        int omax=0;
@@ -14,13 +17,13 @@ class Solution {
         return omax;   
     }
     
-    public static int[] nser(int[] a){
+    public static int[] nser(int[] a){           //right boundary
         Stack<Integer> st = new Stack<>();
         int[] ans = new int[a.length];
-        Arrays.fill(ans,a.length);
+        Arrays.fill(ans,a.length);              //considering default right boundary to be length in right case
         
         for(int i=0;i<a.length;i++){
-            while(st.size()>0 && a[i]<a[st.peek()]){
+            while(st.size()>0 && a[i]<a[st.peek()]){   
                 int idx = st.pop();
                 ans[idx]=i;
             }
@@ -28,10 +31,11 @@ class Solution {
         }
         return ans;   
     }
-        public static int[] nsel(int[] a){
+    
+        public static int[] nsel(int[] a){   //left boundary
         Stack<Integer> st = new Stack<>();
         int[] ans = new int[a.length];
-        Arrays.fill(ans,-1);
+        Arrays.fill(ans,-1);                  //considering default left boundary to be -1 in left case
         
         for(int i=a.length-1;i>=0;i--){
             while(st.size()>0 && a[i]<a[st.peek()]){
