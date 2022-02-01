@@ -1,13 +1,16 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-         Set<List<Integer>> res = new HashSet<>();  
-         Set<Integer> dup = new HashSet<>();
+         
+        Set<List<Integer>> res = new HashSet<>();  
+        
+        Set<Integer> dup = new HashSet<>();
 
-        HashMap<Integer,Integer> map = new HashMap<>();   //putting it in Hash Map
+        HashMap<Integer,Integer> map = new HashMap<>();   
         
         for(int i=0;i<nums.length;i++){
-            if(dup.add(nums[i])==true){
+            if(dup.add(nums[i])==true){  //REMOVING DUPLICATES
                 for(int j=i+1;j<nums.length;j++){
+                    
                     int target = -(nums[i]+nums[j]);
                     
                     if(map.containsKey(target) && map.get(target)==i){
