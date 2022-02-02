@@ -20,7 +20,7 @@ class Solution {
                 end = intervals[i][1];
             }
         }
-       ans.add(new int[]{start,end});
+       ans.add(new int[]{start,end});     //for last addition
         return ans.toArray(new int[0][]);
     }
 }
