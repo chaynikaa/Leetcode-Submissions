@@ -1,24 +1,59 @@
+// class Solution {
+//     public List<List<Integer>> threeSum(int[] nums) {
+//         Set<List<Integer>> res = new HashSet<>();
+//         Set<Integer> dups = new HashSet<>();
+//         Map<Integer, Integer> seen = new HashMap<>();
+//         for (int i = 0; i < nums.length; ++i)
+//             if (dups.add(nums[i])) {
+//                 for (int j = i + 1; j < nums.length; ++j) {
+//                     int complement = -nums[i] - nums[j];
+//                     if (seen.containsKey(complement) && seen.get(complement) == i) {
+//                         List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
+//                         Collections.sort(triplet);
+//                         res.add(triplet);
+//                     }
+//                     seen.put(nums[j], i);
+//                 }
+//             }
+//         return new ArrayList(res);
+//     }
+// }
+
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        Set<List<Integer>> res = new HashSet<>();
-        Set<Integer> dups = new HashSet<>();
-        Map<Integer, Integer> seen = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i)
-            if (dups.add(nums[i])) {
-                for (int j = i + 1; j < nums.length; ++j) {
-                    int complement = -nums[i] - nums[j];
-                    if (seen.containsKey(complement) && seen.get(complement) == i) {
-                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
-                        Collections.sort(triplet);
-                        res.add(triplet);
-                    }
-                    seen.put(nums[j], i);
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        
+        for(int i=0;i<nums.length-2;i++){
+            
+            if(i==0 || (nums[i]!=nums[i-1])){
+           int lo = i+1;
+            int hi = nums.length-1;
+            int sum = 0-nums[i];
+            
+            while(lo<hi){
+                if(nums[lo]+nums[hi]==sum){
+                    res.add(Arrays.asList(nums[i],nums[lo],nums[hi]));
+                
+                while(lo<hi && nums[lo]==nums[lo+1])
+                    lo++;
+                while(lo<hi && nums[hi]==nums[hi-1])
+                    hi--;
+                
+                lo++;hi--;                    
                 }
+
+             else if (nums[hi]+nums[lo]<sum)
+                lo++;
+            else
+                hi--;                
             }
-        return new ArrayList(res);
+ 
+        }
+    }
+        return res;
     }
 }
-
 // class Solution {            //TLE 
 //     public List<List<Integer>> threeSum(int[] nums) {
          
