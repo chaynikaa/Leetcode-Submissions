@@ -1,16 +1,16 @@
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        Arrays.sort(nums);
+        Arrays.sort(nums);                                //sort the array
         List<List<Integer>> ans = new ArrayList<>();
         for(int i=0;i<nums.length;i++){
             for(int j=i+1;j<nums.length;j++){
-                int temp1 = target-nums[i]-nums[j];
+                int temp1 = target-nums[i]-nums[j];      //two sum 1(to find)
                 
                 int front = j+1;
                 int back = nums.length-1;
                 
                 while(front<back){
-                    int temp2 = nums[front]+nums[back];
+                    int temp2 = nums[front]+nums[back];    //two sum2 (to check)
                     
                     if(temp2>temp1)
                         back--;
@@ -19,19 +19,19 @@ class Solution {
                     else{
                         ans.add(Arrays.asList(nums[i],nums[j],nums[front],nums[back]));
                         
-                        while(front<back && nums[front]==nums[front+1])
+                        while(front<back && nums[front]==nums[front+1])    //skipping the extras
                             front++;
-                        while(front<back && nums[back]==nums[back-1])
+                        while(front<back && nums[back]==nums[back-1])      //skipping the extras
                             back--;
                         
-                        front++;back--;
+                        front++;back--;                          
                     }
                 }
-                while(j+1<nums.length && nums[j]==nums[j+1])
-                    j++;
+                while(j+1<nums.length && nums[j]==nums[j+1])   //skpping duplciate js
+                    j++; 
             }
             
-            while(i+1<nums.length && nums[i]==nums[i+1])
+            while(i+1<nums.length && nums[i]==nums[i+1])      //skipping duplicate is
                 i++;
         }
         return ans;
