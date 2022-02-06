@@ -25,30 +25,3 @@ class Solution {
     }
 }
 
-
-
-
-// class Solution {
-//     public int removeDuplicates(int[] nums) {
-//         int prev = nums[0];
-//         int occur = 1;
-//         int res = 1;
-//         for(int i=1, k=1; i<nums.length; i++) {
-//             int num = nums[i];
-//             if(num != prev) {
-//                 prev = num;
-//                 occur = 1;
-//                 nums[k++] = prev;
-//                 res++;
-//             } else {
-//                 occur++;
-//                 if(occur <= 2) {
-//                     nums[k++] = prev;
-//                     res++;
-//                 }
-//             }
-//         }
-        
-//         return res;
-//     }
-// }
