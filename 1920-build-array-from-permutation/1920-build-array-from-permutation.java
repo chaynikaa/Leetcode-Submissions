@@ -11,7 +11,7 @@
 //     }
 // }
 
-class Solution {
+class Solution {   //GREEDY APPROACH
   public int[] buildArray(int[] nums) {
     int n = nums.length;
 
