@@ -15,11 +15,11 @@ class Solution {
             if(t.charAt(i)==ch){
                 j++;
             }
-           if(j==s.length())
+            
+            if(j==s.length())
             return true;
             
         }
-        
             return false;
     }
 }
