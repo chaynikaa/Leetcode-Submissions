@@ -34,7 +34,7 @@
 // }
 
 
-class Solution {
+class Solution {            //binary search  0(nlogn) 0(1) space
     
     public int findDuplicate(int[] nums) {
         // 'low' and 'high' represent the range of values of the target        
@@ -51,7 +51,7 @@ class Solution {
                     count++;
             }
             
-            if (count > cur) {
+            if (count > cur) {    //if a number is repeated then on counting it must hae 1 more than it should actually have
                 duplicate = cur;
                 high = cur - 1;
             } else {
