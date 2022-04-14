@@ -14,7 +14,7 @@ class Solution {
         if(x<0 || y<0 || x>=grid.length || y>=grid[0].length || grid[x][y]!=1)
             return 0;
         
-        grid[x][y]=-1;
+        grid[x][y]=0;
         
         return 1 + dfs(grid,x+1,y)+dfs(grid,x,y+1)+dfs(grid,x-1,y)+dfs(grid,x,y-1);
     }
