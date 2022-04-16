@@ -21,17 +21,17 @@
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);                              //sort the array
+        List<List<Integer>> res = new ArrayList<>();    //ans
         
-        for(int i=0;i<nums.length-2;i++){
+        for(int i=0;i<nums.length-2;i++){              //using the method b+c = -a
+                                                       //nums[i] is a in this. so iterating it to the third last
+            if(i==0 || (nums[i]!=nums[i-1])){          //to avoid having similar a's [-2,-2,-2,0,1]
+                int lo = i+1;                          //initializing lo to next to a
+                int hi = nums.length-1;
+                int sum = 0-nums[i];                   //making it 2 sum in sorted array problem
             
-            if(i==0 || (nums[i]!=nums[i-1])){
-           int lo = i+1;
-            int hi = nums.length-1;
-            int sum = 0-nums[i];
-            
-            while(lo<hi){
+            while(lo<hi){                      
                 if(nums[lo]+nums[hi]==sum){
                     res.add(Arrays.asList(nums[i],nums[lo],nums[hi]));
                 
@@ -40,16 +40,15 @@ class Solution {
                 while(lo<hi && nums[hi]==nums[hi-1])
                     hi--;
                 
-                lo++;hi--;                    
-                }
+                  lo++;hi--;                    
+             }
 
-             else if (nums[hi]+nums[lo]<sum)
+         else if (nums[hi]+nums[lo]<sum)
                 lo++;
-            else
+          else
                 hi--;                
-            }
- 
         }
+      }
     }
         return res;
     }
