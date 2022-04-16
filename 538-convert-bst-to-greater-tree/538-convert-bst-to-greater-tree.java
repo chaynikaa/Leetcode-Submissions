@@ -13,6 +13,22 @@
  *     }
  * }
  */
+// class Solution {
+//     int sum = 0;
+//     public TreeNode convertBST(TreeNode root) {
+        
+//         if(root==null)
+//             return null;
+        
+//         convertBST(root.right);
+//         sum  = sum + root.val;
+//         root.val = sum;
+//         convertBST(root.left);
+        
+//         return root;
+//     }
+// }
+
 class Solution {
     int sum = 0;
     public TreeNode convertBST(TreeNode root) {
@@ -20,10 +36,22 @@ class Solution {
         if(root==null)
             return null;
         
-        convertBST(root.right);
-        sum  = sum + root.val;
-        root.val = sum;
-        convertBST(root.left);
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode node = root;
+        
+        while(st.size()!=0 || node!=null){
+         while(node!=null){
+            st.push(node);
+            node = node.right;
+        }
+        node = st.pop();
+        sum = sum + node.val;
+        node.val = sum;
+        
+        node = node.left;
+            
+        }
+
         
         return root;
     }
