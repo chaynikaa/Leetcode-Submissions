@@ -9,7 +9,7 @@
  *     TreeNode(int val, TreeNode left, TreeNode right) {
  *         this.val = val;
  *         this.left = left;
- *         this.right = right;
+ *         this.right = right; 
  *     }
  * }
  */
@@ -25,7 +25,7 @@ class Solution {
             root = st.pop();
             if(--k==0)
                 return root.val;
-            else
+            else 
                 root = root.right;
         }
     }
