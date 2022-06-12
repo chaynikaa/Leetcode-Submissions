@@ -11,12 +11,12 @@ class Solution {
         
         for(int right=0;right<nums.length;right++){
             
-            while(set.contains(nums[right])==true){
+            while(set.contains(nums[right])==true){    //removing till we get all unique again
                 sum = sum - nums[left];
                 set.remove(nums[left]);
                 left++;
             }
-            sum = sum + nums[right];
+            sum = sum + nums[right];   
             set.add(nums[right]);
             ans = Math.max(ans,sum);
         }
