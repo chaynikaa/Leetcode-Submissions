@@ -1,21 +1,25 @@
 class Solution {
-    public boolean isAnagram(String s, String t) {  //approach-1 sort two arrays and compare
-                                                    // approach-2 given approach
-        int[] arr = new int[27];                    //approach-3 hashing for unique codes
+    public boolean isAnagram(String s, String t) {
         
         if(s.length()!=t.length())
             return false;
         
-        for(char ch:s.toCharArray()){
-            arr[ch-'a']+=1;
+        int[] check = new int[27];
+        
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            check[ch - 'a'] ++;
         }
         
-        for(char c:t.toCharArray()){
-            if(arr[c-'a']==0)
-                return false;
-            
-            arr[c-'a']--;
+        for(int i=0;i<t.length();i++){
+            char ch = t.charAt(i);
+            check[ch - 'a']--;
         }
-      return true;  
+        
+        for(int i=0;i<27;i++){
+            if (check[i]!=0)
+                return false;
+        }
+        return true;
     }
 }
