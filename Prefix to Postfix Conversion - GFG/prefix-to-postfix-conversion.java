@@ -23,9 +23,9 @@ class GFG {
 // } Driver Code Ends
 
 
-// User function Template for Java
+// User function Template for Java 
 
-class Solution {
+class Solution {                                       //reverse , operand 1 + operand 2 + operator
     static String preToPost(String pre_exp) {
         // code here
         Stack<String> st = new Stack<>();
