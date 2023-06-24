@@ -38,39 +38,26 @@ class Solution {
         // Code here
         int[] visited = new int[V+1];
         for(int i=0;i<V;i++){
-            if(visited[i]==0)
-            if(check(V,adj,i,visited))
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean check(int V, ArrayList<ArrayList<Integer>> adj, int src, int[]visited){
-        visited[src] = 1;
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(src,-1));
-        while(q.size()>0){
-            Pair rem = q.poll();
-            int p = rem.parent;
-            int n = rem.node;
-            for(int child: adj.get(n)){
-                if(visited[child]==0){
-                    visited[child]=1;
-                    q.add(new Pair(child,n));
-                } else {
-                    if(p!=child)
-                    return true;
-                }
+            if(visited[i]==0){
+                if(dfs(i,-1,adj,visited))
+                return true;
             }
         }
         return false;
     }
-}
-class Pair{
-    int node;
-    int parent;
-    Pair(int node, int parent){
-        this.node = node;
-        this.parent = parent;
+    
+    public boolean dfs(int node, int parent, ArrayList<ArrayList<Integer>> adj, int[] visited){
+        visited[node] = 1;
+        
+        for(int neighbour:adj.get(node)){
+            if(visited[neighbour]==0){
+             if(dfs(neighbour,node,adj,visited))
+             return true;
+            } else {
+                if(neighbour!=parent)
+                return true;
+            }
+        }
+        return false;
     }
 }
