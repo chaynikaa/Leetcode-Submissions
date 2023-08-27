@@ -33,6 +33,8 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 class Solution 
 {
     //Function to find the maximum number of meetings that can
@@ -48,8 +50,9 @@ class Solution
         for(int i=0;i<start.length;i++){
             list.add(new meeting(start[i],end[i]));
         }
-         meetingComparator mc = new meetingComparator();
-        Collections.sort(list,mc);
+        Collections.sort(list,(a,b)->a.end-b.end);
+        //  meetingComparator mc = new meetingComparator();
+        // Collections.sort(list,mc);
             
             int endPoint = list.get(0).end;
             
@@ -72,11 +75,11 @@ class meeting{
     }
 }
 
-class meetingComparator implements Comparator<meeting>{
-    public int compare(meeting o1, meeting o2){
-        if(o1.end<o2.end)
-        return -1;
-        else
-        return 1;
-    }
-}
+// class meetingComparator implements Comparator<meeting>{
+//     public int compare(meeting o1, meeting o2){
+//         if(o1.end<o2.end)
+//         return -1;
+//         else
+//         return 1;
+//     }
+// }
